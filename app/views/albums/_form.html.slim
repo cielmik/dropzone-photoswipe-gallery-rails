@@ -1,0 +1,9 @@
+= simple_form_for @album, :html => { multipart: true, id:"my-dropzone", class:"dropzone" } do |f|
+  = f.input :name, class: "form-control"
+  = f.input :title
+  = f.input :description
+
+  .fallback
+    = f.input :images, as: :file, input_html: { multiple: true }
+
+  = f.button "submit", class: "btn btn-primary item-submit"

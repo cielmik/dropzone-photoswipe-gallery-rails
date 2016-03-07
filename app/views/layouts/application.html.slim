@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Dropzone Photoswip Sample Gallery
+    == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    == csrf_meta_tags
+
+  body
+    nav.navbar.navbar-default
+      .container
+        .navbar-header
+          .navbar-brand href="#" Gallery
+
+        ul.nav.navbar-nav
+          li.active
+            = link_to "Home", root_path
+        ul.nav.navbar-nav.pull-right
+          li
+            = link_to "Upload", new_album_path
+    section
+      .container
+        - flash.each do |key, message|
+          div class="alert alert-#{key}"
+            = message
+
+        == yield
+
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true

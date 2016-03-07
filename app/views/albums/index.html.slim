@@ -1,0 +1,16 @@
+.row
+  - @albums.each do |album|
+    .col-md-3.slide
+      .picture(itemscope itemtype="http://schema.org/ImageGallery")
+        - album.pictures.each_with_index do |picture, i|
+          - if picture.album_id == album.id
+            figure(itemprop='associatedMedia' itemscope itemtype="http://schema.org/ImageObject")
+              a(href="#{picture.image_url()}" itemprop="contentUrl" data-size="#{picture.width}x#{picture.height}")
+                = image_tag picture.image_url(:medium) if i == 0
+      = link_to "Edit", edit_album_path(album)
+
+
+
+
+
+= render "photo"
