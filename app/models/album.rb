@@ -5,7 +5,7 @@ class Album < ActiveRecord::Base
 
   def images=(files)
     files.each do |file|
-      pictures.build(image: file, title: title, description: description)
+      pictures.build(image: file.pop, title: title, description: description)
     end
   end
 end

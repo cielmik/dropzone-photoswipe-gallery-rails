@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require photoswipe
 //= require turbolinks
+//= require dropzone
 //= require_tree .
 
 
@@ -25,7 +26,7 @@ $(document).ready(function(){
 		var dropzone = new Dropzone ("#my-dropzone", {
 		    maxFiles: 50,
 		    maxFilesize: 30,
-		    paramName: "album[images][]",
+		    paramName: "album[images]",
 		    addRemoveLinks: true,
 				uploadMultiple: true,
 		    autoProcessQueue: false,

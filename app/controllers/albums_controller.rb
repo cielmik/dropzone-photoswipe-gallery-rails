@@ -61,11 +61,9 @@ class AlbumsController < ApplicationController
   private
 
     def album_params
-      params.require(:album).permit(
-              :name,
-              :title,
-              :description,
-              :images => [])
+      params.require(:album).permit(:name,:title,:description).tap do |whitelisted|
+        whitelisted[:images] = params[:album][:images]
+      end
     end
 
 end
