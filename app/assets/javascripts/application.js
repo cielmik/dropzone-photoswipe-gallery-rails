@@ -62,6 +62,16 @@
       };
       lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
       lightBox.init();
+			lightBox.toggleDesktopZoom = function () {
+			};
+			lightBox.framework.bind (lightBox.scrollWrap, 'pswpTap', nextOnClick );
+			function nextOnClick(e) {
+				if (e.detail.target.className == "pswp__img") {
+					lightBox.next();
+				} else {
+					gallery.close();
+				}
+			}
     });
   });
 })(jQuery);
