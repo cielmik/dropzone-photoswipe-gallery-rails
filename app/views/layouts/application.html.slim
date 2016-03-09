@@ -16,7 +16,7 @@ html
             = link_to "Home", root_path
         ul.nav.navbar-nav.pull-right
           li
-            = link_to "Upload", new_album_path
+            = link_to "Upload", new_album_path, remote: true, class: "upload"
     section
       .container
         - flash.each do |key, message|

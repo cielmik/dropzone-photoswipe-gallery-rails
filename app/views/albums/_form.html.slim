@@ -1,7 +1,7 @@
-= simple_form_for @album, :html => { multipart: true, id:"my-dropzone", class:"dropzone" } do |f|
+= simple_form_for @album, :html => { multipart: true, id:"my-dropzone", class:"dropzone form-horizontal" } do |f|
   = f.input :name, class: "form-control"
-  = f.input :title
-  = f.input :description
+  = f.input :title, class: "form-control"
+  = f.input :description, class: "form-control"
 
   .fallback
     = f.input :images, as: :file, input_html: { multiple: true }

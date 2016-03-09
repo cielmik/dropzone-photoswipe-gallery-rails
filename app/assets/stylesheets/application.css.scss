@@ -12,6 +12,8 @@
  *
   *= require dropzone/dropzone
   *= require photoswipe
+  *= require_tree .
+  *= require_self
  */
 
  @import "bootstrap-sprockets";
