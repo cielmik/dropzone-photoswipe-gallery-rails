@@ -51,7 +51,7 @@ $ ->
           if confirm('Are you sure?')
             $.ajax
               type: 'DELETE'
-              url: '/albums/' + albumid + '/pictures/' + id
+              url: '/pictures/' + id
               success: (data) ->
                 console.log data.message
                 return

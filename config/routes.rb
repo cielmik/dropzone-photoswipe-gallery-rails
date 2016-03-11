@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
   root "albums#index"
-
-
-
+  resources :pictures
   resources :albums do
-    resources :pictures
-  end
-
-  resources :albums do
-    get "image_list" => "albums#image_list", as: "image_list"
+    get "image_list" => "albums#image_list", :defaults => { format: 'json'}
   end
 
 
