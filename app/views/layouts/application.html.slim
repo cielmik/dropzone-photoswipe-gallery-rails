@@ -14,6 +14,8 @@ html
         ul.nav.navbar-nav
           li.active
             = link_to "Home", root_path
+          li
+            = link_to "Gallery", pictures_path
         ul.nav.navbar-nav.pull-right
           li
             = link_to "Upload", new_album_path, remote: true, class: "upload"

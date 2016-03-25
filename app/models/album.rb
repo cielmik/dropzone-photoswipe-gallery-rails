@@ -4,8 +4,10 @@ class Album < ActiveRecord::Base
   attr_accessor :images, :title, :description
 
   def images=(files)
-    files.each do |file|
-      pictures.build(image: file.pop, title: title, description: description)
+    if files
+      files.each do |file|
+        pictures.build(image: file.pop)
+      end
     end
   end
 end

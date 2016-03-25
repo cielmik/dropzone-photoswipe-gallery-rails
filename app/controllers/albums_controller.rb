@@ -19,10 +19,14 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(album_params)
-    if @album.save
-      render json: { message: "success" }, :status => 200
-    else
-      render 'new'
+    respond_to do |format|
+      if @album.save
+        format.html { redirect_to root_path, notice: 'Album was successfully created.' }
+        format.js
+        format.json { render json: { message: "success", fileID: @album.id}, :status => 200 }
+      else
+        render 'new'
+      end
     end
   end
 
@@ -36,6 +40,7 @@ class AlbumsController < ApplicationController
       if @album.update_attributes(album_params)
         format.html { redirect_to root_path, notice: 'Album was successfully created.' }
         format.json { render json: @album  }
+        format.js {}
       else
         flash[:danger] = "Album has not been saved."
         render 'new'

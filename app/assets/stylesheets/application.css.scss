@@ -18,3 +18,11 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+#template{
+  display: none;
+}
+
+.text {
+  width: 110px;  
+}

@@ -1,0 +1,7 @@
+.row
+  - @pictures.each do |picture|
+    .col-md-3.slide
+      .picture
+        = image_tag picture.image_url(:medium)
+      = link_to "Edit", edit_picture_path(picture)
+      = link_to "Delete", picture, method: :delete

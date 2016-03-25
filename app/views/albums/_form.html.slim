@@ -1,9 +1,26 @@
-= simple_form_for @album, :html => { multipart: true, id:"my-dropzone", class:"dropzone form-horizontal" } do |f|
+= simple_form_for @album, remote: true, :authenticity_token => true,
+  :html => { multipart: true, id:"my-dropzone", class:"dropzone form-horizontal" } do |f|
   = f.input :name, class: "form-control"
   = f.input :title, class: "form-control"
   = f.input :description, class: "form-control"
 
+  #template
+    .dz-preview.dz-image-preview
+      .dz-image
+        img(data-dz-thumbnail)
+      .dz-details
+        .dz-size
+          span(data-dz-size)
+        .dz-filename
+          span(data-dz-name)
+      .dz-progress
+        span.dz-upload(data-dz-uploadprogress)
+      .dz-error-message
+        span(data-dz-errormessage)
+      .dz-success-mark
+      .dz-error-mark
+
   .fallback
-    = f.input :images, as: :file, input_html: { multiple: true }
+    = f.input :images, as: :file, input_html: {multipart: true }
 
   = f.button "submit", class: "btn btn-primary item-submit"
